@@ -1,0 +1,15 @@
+[Unit]
+Description=Pi Self Monitoring Daemon (Pi-hole + PiVPN)
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/env python3 /opt/pi-self-monitor/pi_self_monitor.py
+WorkingDirectory=/opt/pi-self-monitor
+Restart=on-failure
+RestartSec=5
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target
