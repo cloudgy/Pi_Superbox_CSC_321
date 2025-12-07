@@ -48,9 +48,9 @@ Additional sections cover evaluation results, limitations, possible improvements
 4. Once installed, please open the Raspberry Pi Imager software and select whichever Raspberry Pi device you are using.
     > **Note:** This guide is optimized for Raspberry Pi Zero 2 W, but other models will likely work as well.
 
-    ![alt text](image-1.png)
+![alt text](image-1.png)
 
-    <br>
+<br>
 
 5. On the software section, scroll down and select "Raspberry Pi OS (other)." Then select "Raspberry Pi OS Lite (64-bit)". 
 
@@ -111,13 +111,13 @@ Additional sections cover evaluation results, limitations, possible improvements
       ssh <your_pi_username>@<your_pi_hostname>.local
       ```
 
-    > **Note:** Replace `<your_pi_username>` and `<your_pi_hostname>` with the username and hostname you either set during the Raspberry Pi OS installation or through the Raspberry Pi Configuration tool.
-    >
-    > **Note:** If you have trouble connecting via hostname, you can find the Pi's IP address by checking your router's connected devices list or using a network scanning tool like `nmap`. Then, connect using the IP address instead:
-    >
-    > ```bash
-    > ssh <your_pi_username>@<your_pi_ip_address>
-    > ```
+> **Note:** Replace `<your_pi_username>` and `<your_pi_hostname>` with the username and hostname you either set during the Raspberry Pi OS installation or through the Raspberry Pi Configuration tool.
+>
+> **Note:** If you have trouble connecting via hostname, you can find the Pi's IP address by checking your router's connected devices list or using a network scanning tool like `nmap`. Then, connect using the IP address instead:
+>
+> ```bash
+> ssh <your_pi_username>@<your_pi_ip_address>
+> ```
 
 4. When prompted, enter the password for your Pi user account to complete the SSH connection.
 5. If your connection was successful, you should see a terminal prompt indicating that you are logged into your Raspberry Pi. Something like the following:
@@ -299,76 +299,17 @@ A prepared one-line installer is provided so users can deploy the monitoring ser
 Run this on your Raspberry Pi:
 
 ```bash
-sudo bash <(curl -fsSL https://raw.githubusercontent.com/cloudgy/Pi_Superbox_CSC_321/refs/heads/main/install_pi_self_monitor.sh)
-```
-
-## Self-Monitoring Service (Pi Self Monitor)
-
-The Pi SuperBox includes a lightweight monitoring daemon designed to track system health, check the status of both Pi-hole and PiVPN, and make it easier to understand whether your network appliance is functioning correctly. This service provides a simple local dashboard, an API endpoint for automation, and a Prometheus-friendly metrics interface for advanced monitoring setups.
-
-### What the Self-Monitor Does
-
-The monitoring daemon performs several recurring checks:
-
-- **System Status**
-  - CPU usage, load averages, memory usage, disk utilization  
-  - Raspberry Pi temperature  
-  - Device uptime  
-
-- **Pi-hole Status**
-  - Confirms whether the `pihole-FTL` service is active  
-  - Collects useful DNS statistics (queries, ads blocked, percentages, blocklist size)  
-
-- **PiVPN Status**
-  - Detects whether the VPN service is up  
-  - Reports connected WireGuard/OpenVPN clients  
-
-All collected data is refreshed continuously and made available through three endpoints:
-
-- **Dashboard:**  
-  `http://<your_pi_ip>:8081/`  
-  A small HTML interface summarizing all key metrics.
-
-- **JSON Health API:**  
-  `http://<your_pi_ip>:8081/health`  
-  Ideal for scripts, HomeAssistant, or uptime monitors.
-
-- **Prometheus Metrics:**  
-  `http://<your_pi_ip>:8081/metrics`  
-  Useful if you want to graph long-term system performance in Grafana.
-
-### Why This Monitor Is Helpful
-
-Running Pi-hole and PiVPN on a compact device like a Raspberry Pi works extremely well—but these services may also be **critical infrastructure** for your home network depending on your application. When something breaks, you want:
-
-- Clear visibility into what failed  
-- A quick way to confirm whether DNS filtering is working  
-- Immediate insight into VPN availability  
-- Metrics you can log or alert on  
-
-The self-monitoring daemon solves this by centralizing all relevant system and service information into one place, making it easy to diagnose issues without digging through logs or running multiple commands manually.
-
-### How to Install the Self-Monitor
-
-A prepared one-line installer is provided so users can deploy the monitoring service without manually copying files or modifying systemd.
-
-Run this on your Raspberry Pi:
-
-```bash
-sudo bash <(curl -fsSL https://raw.githubusercontent.com/cloudgy/Pi_Superbox_CSC_321/refs/heads/main/install_pi_self_monitor.sh)
+sudo curl -fsSL https://raw.githubusercontent.com/cloudgy/Pi_Superbox_CSC_321/main/install_pi_self_monitor.sh | sudo bash
 ```
 
 ### What This Command Does
 
-- `curl -fsSL <url>`
+- `sudo curl -fsSL <url>`
     Downloads the installation script directly from the GitHub repository. The flags used are:
         - -f stops on server errors
         - -s hides progress output
         - -S shows errors if they occur
         - -L follows redirects
-
-- Process substitution `<( ... )`
-    Feeds the downloaded script directly into bash without saving it to disk first.
 
 - `sudo bash`
     Runs the script with full root privileges because it must:
@@ -379,7 +320,6 @@ sudo bash <(curl -fsSL https://raw.githubusercontent.com/cloudgy/Pi_Superbox_CSC
         - Enable and start the service on boot
 
 Once installed, the daemon launches automatically and immediately begins monitoring your Pi SuperBox.
-
 
 ### Accessing the Dashboard After Installation
 
@@ -392,3 +332,4 @@ Once the install script completes successfully:
     ```bash
     sudo systemctl status pi-self-monitor.service
     ```
+
