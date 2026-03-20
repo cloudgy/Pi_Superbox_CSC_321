@@ -111,13 +111,13 @@ Additional sections cover evaluation results, limitations, possible improvements
       ssh <your_pi_username>@<your_pi_hostname>.local
       ```
 
-> **Note:** Replace `<your_pi_username>` and `<your_pi_hostname>` with the username and hostname you either set during the Raspberry Pi OS installation or through the Raspberry Pi Configuration tool.
->
-> **Note:** If you have trouble connecting via hostname, you can find the Pi's IP address by checking your router's connected devices list or using a network scanning tool like `nmap`. Then, connect using the IP address instead:
->
-> ```bash
-> ssh <your_pi_username>@<your_pi_ip_address>
-> ```
+    > **Note:** Replace `<your_pi_username>` and `<your_pi_hostname>` with the username and hostname you either set during the Raspberry Pi OS installation or through the Raspberry Pi Configuration tool.
+    >
+    > **Note:** If you have trouble connecting via hostname, you can find the Pi's IP address by checking your router's connected devices list or using a network scanning tool like `nmap`. Then, connect using the IP address instead:
+    >
+    > ```bash
+    > ssh <your_pi_username>@<your_pi_ip_address>
+    > ```
 
 4. When prompted, enter the password for your Pi user account to complete the SSH connection.
 5. If your connection was successful, you should see a terminal prompt indicating that you are logged into your Raspberry Pi. Something like the following:
@@ -136,13 +136,14 @@ Additional sections cover evaluation results, limitations, possible improvements
     ```
 
     The `pi@superbox:~ $` indicates that you are logged in as the `pi` user on a device named `superbox` and are in the `~` (home) directory. From here you can enter commands to control and configure your Pi.
-    6. (Optional) For improved security, consider setting up SSH key-based authentication and disabling password authentication. You can follow guides like this one: **[How to Set Up SSH Key-Based Authentication](https://www.ssh.com/academy/ssh/keygen)**.
-    7. (Optional) Update your system packages to ensure you have the latest security patches:
 
-      ```bash
-      sudo apt update
-      sudo apt upgrade -y
-      ```
+6. (Optional) For improved security, consider setting up SSH key-based authentication and disabling password authentication. You can follow guides like this one: **[How to Set Up SSH Key-Based Authentication](https://www.ssh.com/academy/ssh/keygen)**.
+7. (Optional) Update your system packages to ensure you have the latest security patches:
+
+    ```bash
+    sudo apt update
+    sudo apt upgrade -y
+    ```
 
 ---
 
