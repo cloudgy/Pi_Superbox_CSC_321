@@ -42,16 +42,15 @@ Additional sections cover evaluation results, limitations, possible improvements
 ### Pi OS Installation Steps
 
 1. Ensure that the Raspberry Pi is powered off and the microSD card is inserted into your computer, you can check the card's contents using your file manager to ensure it is recognized.
-   
-3. Download Raspberry Pi Imager from the **[official website](https://www.raspberrypi.com/software/)**.![alt text](image.png)
-<br>
-4. Launch the installer and follow the prompts to install Raspberry Pi Imager on your computer.
-5. Once installed, please open the Raspberry Pi Imager software and select whichever Raspberry Pi device you are using.
+
+2. Download Raspberry Pi Imager from the **[official website](https://www.raspberrypi.com/software/)**.![alt text](image.png)
+
+3. Launch the installer and follow the prompts to install Raspberry Pi Imager on your computer.
+
+4. Once installed, please open the Raspberry Pi Imager software and select whichever Raspberry Pi device you are using.
     > **Note:** This guide is optimized for Raspberry Pi Zero 2 W, but other models will likely work as well.
 
-![alt text](image-1.png)
-
-<br>
+    ![alt text](image-1.png)
 
 5. On the software section, scroll down and select "Raspberry Pi OS (other)." Then select "Raspberry Pi OS Lite (64-bit)". 
 
